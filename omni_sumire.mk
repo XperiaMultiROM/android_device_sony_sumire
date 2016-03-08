@@ -12,14 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include device/sony/kitakami/PlatformConfig.mk
+# Assert
+TARGET_OTA_ASSERT_DEVICE := E6653,sumire
 
-TARGET_BOOTLOADER_BOARD_NAME := E6653
+# TWRP Recovery
+DEVICE_RESOLUTION := 1080x1920
+TW_THEME := portrait_hdpi
+TW_IGNORE_ABS_MT_TRACKING_ID := true
 
-BOARD_KERNEL_CMDLINE += androidboot.hardware=sumire
+# Inherit AOSP Rhine common device parts
+$(call inherit-product, device/sony/sumire/aosp_e6653.mk)
 
-TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/clearpad/wakeup_gesture"
+# Inherit Omni GSM telephony parts
+$(call inherit-product, device/sony/kitakami/twrp.mk)
+$(call inherit-product, vendor/omni/config/gsm.mk)
 
-MR_DPI := xhdpi
-MR_DPI_FONT := 340
-MR_KEXEC_MEM_MIN := 0x0
+# Inherit Omni product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
+
+# Override Product Name for OmniROM
+PRODUCT_NAME := omni_sumire
+PRODUCT_MODEL := Xperia Z5
