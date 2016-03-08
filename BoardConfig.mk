@@ -22,4 +22,4 @@ TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/clearpad/wakeup_gesture"
 
 MR_DPI := xhdpi
 MR_DPI_FONT := 340
-MR_KEXEC_MEM_MIN := 0x0ff00000
+MR_KEXEC_MEM_MIN := 0x0
