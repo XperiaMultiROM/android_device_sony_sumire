@@ -23,5 +23,6 @@ BOARD_KERNEL_CMDLINE += androidboot.hardware=sumire
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/clearpad/wakeup_gesture"
 
 TARGET_RECOVERY_IS_MULTIROM := true
+MR_ALLOW_NKK71_NOKEXEC_WORKAROUND := true
 MR_DPI := xhdpi
 MR_DPI_FONT := 340
